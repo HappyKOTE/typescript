@@ -1,11 +1,11 @@
 import { renderBlock } from './lib.js'
 
-const today: Date = new Date()
-const lastDayOfNextMonth: Date = new Date(today.getFullYear(), today.getMonth()+2, 1)
-const checkInDefaultValue: Date = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2)
-const checkOutDefaultValue: Date = new Date(checkInDefaultValue.getFullYear(), checkInDefaultValue.getMonth(), checkInDefaultValue.getDate()+2)
+const today:Date = new Date()
+const lastDayOfNextMonth:Date = new Date(today.getFullYear(), today.getMonth()+2, 1)
+const checkInDefaultValue:Date = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2)
+const checkOutDefaultValue:Date = new Date(checkInDefaultValue.getFullYear(), checkInDefaultValue.getMonth(), checkInDefaultValue.getDate()+2)
 
-function dateConvert (date: Date) {
+function dateConvert (date:Date) {
   return date.toJSON().slice(0,10)
 }
 
