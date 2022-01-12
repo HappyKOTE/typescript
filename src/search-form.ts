@@ -5,7 +5,7 @@ const lastDayOfNextMonth: Date = new Date(today.getFullYear(), today.getMonth()+
 const checkInDefaultValue: Date = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2)
 const checkOutDefaultValue: Date = new Date(checkInDefaultValue.getFullYear(), checkInDefaultValue.getMonth(), checkInDefaultValue.getDate()+2)
 
-function dateConvert (date) {
+function dateConvert (date: Date) {
   return date.toJSON().slice(0,10)
 }
 
