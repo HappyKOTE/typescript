@@ -1,19 +1,14 @@
 import { renderBlock } from './lib.js'
 
-const today:Date = new Date()
-const lastDayOfNextMonth:Date = new Date(today.getFullYear(), today.getMonth()+2, 1)
-const checkInDefaultValue:Date = new Date(today.getFullYear(), today.getMonth(), today.getDate()+2)
-const checkOutDefaultValue:Date = new Date(checkInDefaultValue.getFullYear(), checkInDefaultValue.getMonth(), checkInDefaultValue.getDate()+2)
+const today = new Date()
+const lastDayOfNextMonth = new Date(today.getFullYear(), today.getMonth()+2, 1)
+function dateConvert (date:Date) { return date.toJSON().slice(0,10) }
 
-function dateConvert (date:Date) {
-  return date.toJSON().slice(0,10)
-}
-
-export function renderSearchFormBlock () {
+export function renderSearchFormBlock (checkInDefaultValue?:Date, checkOutDefaultValue?:Date) {
   renderBlock(
     'search-form-block',
     `
-    <form>
+    <form id="search-form">
       <fieldset class="search-filedset">
         <div class="row">
           <div>
@@ -40,11 +35,20 @@ export function renderSearchFormBlock () {
             <input id="max-price" type="text" value="" name="price" class="max-price" />
           </div>
           <div>
-            <div><button>Найти</button></div>
+            <div><button type="submit">Найти</button></div>
           </div>
         </div>
       </fieldset>
     </form>
     `
   )
+}
+
+// переменная с данными для поиска и функция поиска
+let searchInputData = { checkInValue: undefined, checkOutValue: undefined, maxPriceValue: undefined }
+export function search() {
+  searchInputData.checkInValue = document.getElementById('check-in-date').value
+  searchInputData.checkOutValue = document.getElementById('check-out-date').value
+  if (!!Number(document.getElementById('max-price').value)) { searchInputData.maxPriceValue = Number(document.getElementById('max-price').value) }
+  console.log(searchInputData)
 }

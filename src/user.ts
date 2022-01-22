@@ -9,7 +9,7 @@ export function renderUserBlock (userName:string, avatarUrl:string, favoriteItem
       <div class="info">
           <p class="name">${userName}</p>
           <p class="fav">
-            <i class="heart-icon${favoriteItemsAmount > 0 ? ' active' : ''}"></i>${favoriteItemsAmount > 0 ? favoriteItemsAmount : 'ничего нет'}
+            <i class="heart-icon${!!favoriteItemsAmount ? ' active' : ''}"></i>${!!favoriteItemsAmount ? favoriteItemsAmount : 'ничего нет'}
           </p>
       </div>
     </div>
